@@ -1,0 +1,22 @@
+# This file is based on https://github.com/WebGoat/WebGoat/blob/develop/docker-compose.yml
+
+version: '3.1'
+
+services:
+
+  webgoat:
+    image: webgoat/webgoat-8.0:v8.0.0.M25
+    environment:
+      - WEBWOLF_HOST=webwolf
+      - WEBWOLF_PORT=9090
+    ports:
+      - "8080:8080"
+      - "9001:9001"
+    volumes:
+      - ./data/webgoat:/home/webgoat/.webgoat-8.0.0.M25
+  
+  webwolf:
+    image: webgoat/webwolf:v8.0.0.M25
+    ports:
+      - "9090:9090"
+    command: --spring.datasource.url=jdbc:hsqldb:hsql://webgoat:9001/webgoat --server.address=0.0.0.0
