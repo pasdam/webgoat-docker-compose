@@ -20,3 +20,11 @@ services:
     ports:
       - "9090:9090"
     command: --spring.datasource.url=jdbc:hsqldb:hsql://webgoat:9001/webgoat --server.address=0.0.0.0
+
+  zap:
+    entrypoint: zap-webswing.sh
+    image: owasp/zap2docker-stable:2.8.0
+    ports: 
+      - "9091:8080"
+      - "9092:8090"
+    user: zap
