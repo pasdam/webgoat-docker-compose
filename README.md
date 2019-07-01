@@ -10,7 +10,7 @@ To run the application:
 docker-compose up -d
 ```
 
-After that the apps will ba available at the following addresses:
+After that the apps will ba available at the following addresses (it might take few seconds for them to be up and running):
 
 * WebGoat: http://localhost:8080/WebGoat/login
 * WebWold: http://localhost:9090/login
